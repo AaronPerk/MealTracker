@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hxT-5O-tMN">
-                                <rect key="frame" x="16" y="40" width="343" height="96.5"/>
+                                <rect key="frame" x="16" y="40" width="343" height="424.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Meal" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zx5-Q4-tp2">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="20.5"/>
@@ -44,6 +45,16 @@
                                             <action selector="setDefaultLabelText:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Sgk-xn-s7L"/>
                                         </connections>
                                     </button>
+                                    <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" placeholderIntrinsicWidth="320" placeholderIntrinsicHeight="320" image="defaultMealPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="5FL-EC-WHu">
+                                        <rect key="frame" x="0.0" y="104.5" width="343" height="320"/>
+                                        <gestureRecognizers/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="5FL-EC-WHu" secondAttribute="height" multiplier="343:320" id="v2f-f3-pVI"/>
+                                        </constraints>
+                                        <connections>
+                                            <outletCollection property="gestureRecognizers" destination="4g8-Oa-Q3v" appends="YES" id="6Wt-xH-Z7i"/>
+                                        </connections>
+                                    </imageView>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -55,13 +66,22 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="mealImage" destination="5FL-EC-WHu" id="TeE-Ak-kyX"/>
                         <outlet property="mealNameLabel" destination="Zx5-Q4-tp2" id="rl8-5o-kou"/>
                         <outlet property="mealNameTextField" destination="Nzh-s0-JU6" id="rBo-c3-hOi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="4g8-Oa-Q3v">
+                    <connections>
+                        <action selector="selectImageFromPhotoLibrary:" destination="BYZ-38-t0r" id="KT0-Lv-xkL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-143" y="-16"/>
+            <point key="canvasLocation" x="-143.19999999999999" y="-16.641679160419791"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="defaultMealPhoto" width="540" height="540"/>
+    </resources>
 </document>
