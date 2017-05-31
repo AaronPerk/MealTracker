@@ -9,6 +9,13 @@
 import UIKit
 
 class MealTableViewCell: UITableViewCell {
+    
+    //MARK: Properties
+    
+    @IBOutlet weak var mealName: UILabel!
+    @IBOutlet weak var ratingControl: RatingControl!
+    @IBOutlet weak var mealImage: UIImageView!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
